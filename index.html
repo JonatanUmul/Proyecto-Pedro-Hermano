@@ -3,151 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Café Valle de Miel, emprendimiento escolar 2026 de café guatemalteco de San Pedro Yepocapa.">
-  <title>Café Valle de Miel | Emprendimiento 2026</title>
+  <title>Café Valle de Miel</title>
   <style>
     :root {
-      --azul-noche: #082f49;
-      --azul: #0369a1;
-      --azul-vivo: #0284c7;
-      --azul-claro: #e0f2fe;
-      --cielo: #f0f9ff;
-      --miel: #f5b21b;
-      --miel-2: #ffd166;
-      --verde: #15803d;
-      --verde-claro: #dcfce7;
-      --texto: #143042;
-      --muted: #5b6f7c;
-      --blanco: #ffffff;
-      --sombra: 0 22px 60px rgba(8, 47, 73, 0.16);
-      --radio: 8px;
+      --black: #000000;
+      --panel: #12100c;
+      --gold: #d4af37;
+      --gold-2: #c5a059;
+      --white: #ffffff;
+      --text: #f7f2e7;
+      --muted: #c9bc9e;
+      --line: rgba(212, 175, 55, 0.28);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+      --radius: 8px;
       --max: 1180px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
 
     body {
-      color: var(--texto);
-      background: var(--cielo);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
+      min-width: 320px;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(212, 175, 55, 0.14), transparent 32%),
+        linear-gradient(180deg, #000000 0%, #0b0906 48%, #000000 100%);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.62;
     }
 
-    img, video { display: block; max-width: 100%; }
+    img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
-    button, input, textarea { font: inherit; }
+    button { font: inherit; }
     .container { width: min(100% - 32px, var(--max)); margin-inline: auto; }
 
     .site-header {
       position: fixed;
-      z-index: 50;
+      z-index: 20;
       inset: 0 0 auto;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(8, 47, 73, 0.78);
-      color: var(--blanco);
+      border-bottom: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.82);
       backdrop-filter: blur(18px);
-      transition: background 180ms ease, box-shadow 180ms ease;
-    }
-
-    .site-header.is-scrolled {
-      background: rgba(8, 47, 73, 0.96);
-      box-shadow: 0 16px 42px rgba(8, 47, 73, 0.22);
     }
 
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 74px;
-      gap: 18px;
+      min-height: 82px;
+      gap: 20px;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      font-weight: 900;
-    }
-
-    .brand-mark {
-      display: grid;
-      width: 44px;
-      height: 44px;
-      place-items: center;
-      border: 2px solid rgba(255, 255, 255, 0.34);
-      border-radius: 50%;
-      background: linear-gradient(145deg, var(--miel), var(--azul-vivo));
-      color: var(--azul-noche);
-      font-size: 1.05rem;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
-    }
-
-    .brand-logo {
-      width: 46px;
-      height: 46px;
-      object-fit: contain;
-      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.26));
-    }
-
-    .brand-text span {
-      display: block;
-      color: rgba(255, 255, 255, 0.76);
-      font-size: 0.72rem;
+      min-width: 0;
       font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 14px rgba(212, 175, 55, 0.18));
+    }
+
+    .brand span {
+      overflow-wrap: anywhere;
+      color: var(--gold);
+      font-size: 1.03rem;
       text-transform: uppercase;
-      letter-spacing: 0.13em;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 42px;
-      padding: 0 13px;
-      border-radius: 999px;
-      color: rgba(255, 255, 255, 0.86);
-      font-size: 0.93rem;
-      font-weight: 750;
-      transition: background 160ms ease, color 160ms ease;
-    }
-
-    .nav-links a:hover, .nav-links a.is-active {
-      background: rgba(255, 255, 255, 0.16);
-      color: var(--blanco);
-    }
-
-    .button, .button-ghost, .form-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 20px;
-      border: 0;
-      border-radius: 999px;
-      cursor: pointer;
-      font-weight: 900;
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-    }
-
-    .button, .form-button {
-      background: var(--miel);
-      color: var(--azul-noche);
-      box-shadow: 0 14px 34px rgba(245, 178, 27, 0.28);
-    }
-
-    .button:hover, .button-ghost:hover, .form-button:hover { transform: translateY(-2px); }
-
-    .button-ghost {
-      border: 1px solid rgba(255, 255, 255, 0.42);
-      background: rgba(255, 255, 255, 0.12);
-      color: var(--blanco);
     }
 
     .menu-toggle {
@@ -156,21 +83,23 @@
       height: 44px;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(255, 255, 255, 0.28);
+      border: 1px solid var(--line);
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.12);
-      color: var(--blanco);
+      background: transparent;
+      color: var(--gold);
       cursor: pointer;
     }
 
-    .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after {
+    .menu-toggle span,
+    .menu-toggle span::before,
+    .menu-toggle span::after {
       display: block;
-      width: 18px;
+      width: 19px;
       height: 2px;
       border-radius: 99px;
       background: currentColor;
-      transition: transform 180ms ease, opacity 180ms ease;
       content: "";
+      transition: transform 180ms ease, opacity 180ms ease;
     }
 
     .menu-toggle span::before { transform: translateY(-6px); }
@@ -179,593 +108,443 @@
     .menu-toggle.is-open span::before { opacity: 0; }
     .menu-toggle.is-open span::after { transform: translateY(-2px) rotate(-90deg); }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0 13px;
+      border-radius: 999px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.9rem;
+      font-weight: 800;
+      transition: background 160ms ease, color 160ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.is-active {
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold);
+    }
+
     .hero {
       position: relative;
       display: grid;
-      min-height: 92vh;
       align-items: end;
+      min-height: 96vh;
       overflow: hidden;
-      color: var(--blanco);
-      background: var(--azul-noche);
+      border-bottom: 1px solid var(--line);
+      isolation: isolate;
+      background: #000000;
     }
 
-    .hero-bg {
+    .hero-video {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 46%;
-    }
-
-    .sound-toggle {
-      position: absolute;
-      z-index: 2;
-      top: 96px;
-      right: max(16px, calc((100vw - var(--max)) / 2));
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
-      border: 1px solid rgba(255, 255, 255, 0.34);
-      border-radius: 999px;
-      background: rgba(8, 47, 73, 0.56);
-      color: var(--blanco);
-      cursor: pointer;
-      font-weight: 900;
-      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(14px);
-      transition: background 160ms ease, transform 160ms ease, border-color 160ms ease;
-    }
-
-    .sound-toggle:hover {
-      transform: translateY(-2px);
-      background: rgba(2, 132, 199, 0.68);
-      border-color: rgba(255, 255, 255, 0.54);
-    }
-
-    .sound-toggle[aria-pressed="true"] {
-      background: var(--miel);
-      color: var(--azul-noche);
-      border-color: rgba(255, 209, 102, 0.78);
+      object-position: center;
     }
 
     .hero::before {
       position: absolute;
       inset: 0;
+      z-index: 1;
       background:
-        linear-gradient(90deg, rgba(8, 47, 73, 0.92), rgba(3, 105, 161, 0.58) 48%, rgba(21, 128, 61, 0.16)),
-        linear-gradient(0deg, rgba(8, 47, 73, 0.78), rgba(8, 47, 73, 0.05) 62%);
+        linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.24) 56%, rgba(0, 0, 0, 0.06)),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.48), transparent 46%);
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero::after {
+      position: absolute;
+      inset: auto 0 0;
+      z-index: 1;
+      height: 28%;
+      background: linear-gradient(0deg, #000000, transparent);
       content: "";
     }
 
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       width: min(100% - 32px, var(--max));
-      margin: 0 auto;
-      padding: 168px 0 66px;
+      margin-inline: auto;
+      padding: 156px 0 88px;
     }
 
-    .hero-layout {
-      display: block;
-    }
-
-    .hero-copy {
-      min-width: 0;
-      max-width: 920px;
-    }
-
-    .hero-main-logo {
-      width: clamp(116px, 16vw, 176px);
+    .hero-logo {
+      width: clamp(150px, 18vw, 250px);
       height: auto;
-      margin-bottom: 22px;
-      filter: drop-shadow(0 18px 34px rgba(0, 0, 0, 0.3));
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
-      color: var(--miel-2);
-      font-size: 0.82rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-
-    .eyebrow::before {
-      width: 34px;
-      height: 2px;
-      background: currentColor;
-      content: "";
+      margin-bottom: 26px;
+      filter: drop-shadow(0 20px 42px rgba(0, 0, 0, 0.58));
     }
 
     .hero h1 {
-      max-width: 860px;
-      font-size: clamp(3.1rem, 8vw, 7rem);
-      line-height: 0.93;
+      max-width: 900px;
+      color: var(--gold);
+      font-size: clamp(4rem, 7.4vw, 8rem);
+      line-height: 0.92;
+      text-transform: uppercase;
+      text-shadow: 0 18px 40px rgba(0, 0, 0, 0.64);
     }
 
-    .hero p {
-      max-width: 690px;
-      margin-top: 22px;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: clamp(1.05rem, 2vw, 1.32rem);
+    .slogan {
+      display: inline-flex;
+      margin-top: 24px;
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+      color: var(--white);
+      font-size: clamp(1.35rem, 2vw, 1.8rem);
+      font-style: italic;
     }
-
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1px;
-      width: min(100%, 940px);
-      margin-top: 48px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      border-radius: var(--radio);
-      background: rgba(255, 255, 255, 0.16);
-      backdrop-filter: blur(12px);
-    }
-
-    .stat { padding: 20px; background: rgba(8, 47, 73, 0.34); }
-    .stat strong { display: block; color: var(--miel-2); font-size: 1.6rem; line-height: 1; }
-    .stat span { display: block; margin-top: 8px; color: rgba(255, 255, 255, 0.82); font-size: 0.92rem; }
 
     section { padding: 92px 0; }
+    section:nth-of-type(odd):not(.hero) { background: rgba(255, 255, 255, 0.025); }
 
     .section-head {
       display: grid;
-      gap: 12px;
-      max-width: 780px;
-      margin-bottom: 42px;
+      gap: 10px;
+      max-width: 820px;
+      margin-bottom: 38px;
     }
 
     .section-kicker {
-      color: var(--azul);
-      font-size: 0.82rem;
-      font-weight: 950;
+      color: var(--gold-2);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      letter-spacing: 0.13em;
     }
 
     .section-title {
-      color: var(--azul-noche);
-      font-size: clamp(2.15rem, 5vw, 4rem);
+      color: var(--gold);
+      font-size: clamp(2.05rem, 5vw, 4rem);
       line-height: 1;
     }
 
-    .section-text { color: var(--muted); font-size: 1.05rem; }
-    .empresa, .productos, .plan { background: var(--blanco); }
-
-    .split {
+    .lux-grid {
       display: grid;
-      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-      gap: 36px;
-      align-items: center;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 28px;
+      align-items: stretch;
     }
 
-    .photo-stack {
-      display: grid;
-      grid-template-columns: 0.76fr 1fr;
-      gap: 16px;
-      align-items: end;
+    .panel,
+    .value-card,
+    .product-card,
+    .point-card,
+    .research-card,
+    .credit-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(27, 23, 16, 0.98), rgba(8, 7, 5, 0.98));
+      box-shadow: var(--shadow);
     }
 
-    .photo-frame {
-      overflow: hidden;
-      border-radius: var(--radio);
-      background: var(--azul-claro);
-      box-shadow: var(--sombra);
-    }
-
-    .photo-frame img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; }
-    .photo-frame.small img { min-height: 300px; }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .info-card, .value-card, .product-card, .plan-card {
-      display: grid;
-      gap: 12px;
-      padding: 26px;
-      border: 1px solid rgba(3, 105, 161, 0.14);
-      border-radius: var(--radio);
-      background: var(--blanco);
-      box-shadow: 0 18px 46px rgba(8, 47, 73, 0.09);
-    }
-
-    .info-card.featured {
-      grid-column: 1 / -1;
-      background: linear-gradient(135deg, var(--azul-noche), var(--azul-vivo));
-      color: var(--blanco);
-    }
-
-    .info-card h3, .value-card h3, .product-card h3, .plan-card h3 {
-      color: var(--azul-noche);
-      font-size: 1.16rem;
+    .panel { display: grid; gap: 18px; padding: 28px; }
+    .panel h3,
+    .value-card h3,
+    .product-card h3,
+    .point-card h3,
+    .research-card h3,
+    .credit-card h3 {
+      color: var(--gold);
+      font-size: 1.22rem;
       line-height: 1.2;
     }
 
-    .info-card.featured h3 { color: var(--miel-2); }
-    .info-card.featured p { color: rgba(255, 255, 255, 0.84); }
+    .panel p,
+    .value-card p,
+    .product-card p,
+    .point-card p,
+    .research-card p,
+    .credit-card p,
+    li {
+      color: var(--text);
+    }
 
-    .values-band { background: linear-gradient(180deg, var(--cielo), var(--azul-claro)); }
+    .logo-panel {
+      display: grid;
+      place-items: center;
+      padding: 34px;
+      min-height: 100%;
+    }
 
-    .value-grid {
+    .logo-panel img {
+      width: min(100%, 420px);
+      filter: drop-shadow(0 24px 58px rgba(212, 175, 55, 0.14));
+    }
+
+    .values-grid {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 14px;
-    }
-
-    .value-card { min-height: 210px; background: rgba(255, 255, 255, 0.74); }
-
-    .value-icon {
-      display: grid;
-      width: 48px;
-      height: 48px;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--verde-claro);
-      color: var(--verde);
-      font-size: 1.05rem;
-      font-weight: 950;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 18px;
-    }
-
-    .product-card {
-      min-height: 320px;
-      align-content: end;
-      overflow: hidden;
-      position: relative;
-      color: var(--blanco);
-      isolation: isolate;
-    }
-
-    .product-card::before {
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      background: var(--image) center / cover;
-      content: "";
-      transition: transform 320ms ease;
-    }
-
-    .product-card::after {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(180deg, rgba(8, 47, 73, 0.04), rgba(8, 47, 73, 0.9));
-      content: "";
-    }
-
-    .product-card:hover::before { transform: scale(1.07); }
-    .product-card h3 { color: var(--blanco); font-size: 1.7rem; }
-    .product-card p { color: rgba(255, 255, 255, 0.86); }
-
-    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      min-height: 32px;
-      padding: 0 12px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.16);
-      color: var(--miel-2);
-      font-size: 0.86rem;
-      font-weight: 850;
-    }
-
-    .proceso { background: linear-gradient(180deg, var(--azul-claro), var(--cielo)); }
-
-    .timeline {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .step-card {
-      display: grid;
-      gap: 12px;
-      padding: 28px;
-      border-radius: var(--radio);
-      background: var(--blanco);
-      box-shadow: var(--sombra);
-      border-top: 5px solid var(--azul-vivo);
-      overflow: hidden;
-    }
-
-    .step-card.has-image {
-      padding: 0;
-    }
-
-    .step-media {
-      position: relative;
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-      background: var(--azul-claro);
-    }
-
-    .step-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 320ms ease;
-    }
-
-    .step-card:hover .step-media img {
-      transform: scale(1.06);
-    }
-
-    .step-content {
-      display: grid;
-      gap: 12px;
-      padding: 24px;
-    }
-
-    .step-card span {
-      display: grid;
-      width: 46px;
-      height: 46px;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--miel);
-      color: var(--azul-noche);
-      font-weight: 950;
-    }
-
-    .step-card h3 { color: var(--azul-noche); font-size: 1.28rem; }
-
-    .plan-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .plan-card { border-left: 5px solid var(--verde); }
-    .plan-card strong { color: var(--azul); }
-
-    .plan-list {
-      display: grid;
-      gap: 10px;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .segunda {
-      background: linear-gradient(180deg, var(--cielo), var(--blanco));
-    }
-
-    .insight-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin-bottom: 28px;
-    }
-
-    .insight-card {
-      display: grid;
-      gap: 8px;
-      padding: 22px;
-      border: 1px solid rgba(3, 105, 161, 0.14);
-      border-radius: var(--radio);
-      background: var(--blanco);
-      box-shadow: 0 16px 40px rgba(8, 47, 73, 0.08);
-    }
-
-    .insight-card strong {
-      color: var(--azul-vivo);
-      font-size: 2rem;
-      line-height: 1;
-    }
-
-    .insight-card span {
-      color: var(--azul-noche);
-      font-weight: 900;
-      line-height: 1.2;
-    }
-
-    .insight-card p {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .research-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: 24px;
-      align-items: start;
-      margin-top: 34px;
-    }
-
-    .research-card,
-    .gallery-card {
-      overflow: hidden;
-      border: 1px solid rgba(3, 105, 161, 0.14);
-      border-radius: var(--radio);
-      background: var(--blanco);
-      box-shadow: var(--sombra);
-    }
-
-    .research-card img,
-    .gallery-card img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      background: var(--azul-claro);
-    }
-
-    .research-card .card-body,
-    .gallery-card .card-body {
-      display: grid;
-      gap: 10px;
-      padding: 22px;
-    }
-
-    .research-card h3,
-    .gallery-card h3 {
-      color: var(--azul-noche);
-      font-size: 1.2rem;
-      line-height: 1.2;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
       margin-top: 28px;
     }
 
-    .gallery-card img {
-      height: 220px;
-    }
-
-    .gallery-card.formula img {
-      object-fit: contain;
-      padding: 18px;
-    }
-
-    .video-section {
-      background: linear-gradient(135deg, var(--azul-noche), var(--azul));
-      color: var(--blanco);
-    }
-
-    .video-section .section-kicker, .video-section .section-title { color: var(--miel-2); }
-    .video-section .section-text { color: rgba(255, 255, 255, 0.78); }
-
-    .video-grid {
+    .value-card {
       display: grid;
-      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-      gap: 34px;
-      align-items: center;
+      gap: 12px;
+      padding: 22px;
+      min-height: 230px;
     }
 
-    .video-wrap {
+    .product-grid,
+    .points-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .product-grid + .product-grid { margin-top: 18px; }
+
+    .product-card {
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      border-radius: var(--radio);
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
-    }
-
-    .video-wrap video {
-      width: 100%;
-      max-height: 580px;
-      object-fit: cover;
-      background: #000;
-    }
-
-    .contact { background: var(--cielo); }
-
-    .contact-grid {
       display: grid;
-      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-      gap: 42px;
+      grid-template-rows: auto 1fr;
+    }
+
+    .product-card figure {
+      min-height: 360px;
+      background: #050505;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 100%;
+      max-height: 460px;
+      object-fit: cover;
+    }
+
+    .product-card .contain {
+      object-fit: contain;
+      padding: 24px;
+      background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1), transparent 62%), #050505;
+    }
+
+    .product-body {
+      display: grid;
+      gap: 14px;
+      padding: 26px;
+    }
+
+    .facts {
+      display: grid;
+      gap: 8px;
+      list-style: none;
+      color: var(--muted);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.94rem;
+    }
+
+    .facts strong { color: var(--gold-2); }
+
+    .point-card {
+      display: grid;
+      gap: 12px;
+      padding: 26px;
+    }
+
+    .research-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: 22px;
       align-items: start;
     }
 
-    .contact-info { display: grid; gap: 16px; }
+    .research-stack { display: grid; gap: 14px; }
 
-    .info-line {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding: 18px;
-      border: 1px solid rgba(3, 105, 161, 0.16);
-      border-radius: var(--radio);
-      background: var(--blanco);
-      box-shadow: 0 14px 34px rgba(8, 47, 73, 0.08);
-    }
-
-    .info-line strong { display: block; color: var(--azul); }
-    .info-line span { color: var(--muted); font-size: 0.96rem; }
-
-    .contact-form {
+    .research-card {
       display: grid;
-      gap: 18px;
-      padding: 30px;
-      border: 1px solid rgba(3, 105, 161, 0.16);
-      border-radius: var(--radio);
-      background: var(--blanco);
-      box-shadow: var(--sombra);
+      gap: 10px;
+      padding: 22px;
     }
 
-    .form-row {
+    .accordion {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: 10px;
     }
 
-    .field { display: grid; gap: 8px; }
-    .field label { color: var(--azul-noche); font-size: 0.9rem; font-weight: 850; }
-
-    .field input, .field textarea {
+    .accordion button {
       width: 100%;
-      border: 1px solid rgba(3, 105, 161, 0.22);
-      border-radius: var(--radio);
-      background: var(--cielo);
-      color: var(--texto);
-      outline: 0;
-      padding: 13px 14px;
-      transition: border 160ms ease, box-shadow 160ms ease, background 160ms ease;
-    }
-
-    .field textarea { min-height: 130px; resize: vertical; }
-
-    .field input:focus, .field textarea:focus {
-      border-color: var(--azul-vivo);
-      background: var(--blanco);
-      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.16);
-    }
-
-    .form-note {
-      min-height: 24px;
-      color: var(--verde);
-      font-size: 0.94rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 58px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(212, 175, 55, 0.1);
+      color: var(--gold);
+      cursor: pointer;
+      text-align: left;
       font-weight: 800;
     }
 
-    .site-footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.14);
-      background: var(--azul-noche);
-      color: rgba(255, 255, 255, 0.75);
-      padding: 28px 0;
+    .accordion button span {
+      flex: 0 0 auto;
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+    }
+
+    .accordion-panel {
+      display: none;
+      padding: 18px 20px 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .accordion-panel.is-open { display: block; }
+
+    .gallery {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .gallery-frame {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      background: #050505;
+    }
+
+    .gallery-frame img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 220ms ease;
+    }
+
+    .gallery-frame img.is-active { opacity: 1; }
+
+    .gallery-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .gallery-controls button {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      font-size: 1.25rem;
+    }
+
+    .gallery-title {
+      min-width: 0;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.94rem;
+      font-weight: 800;
       text-align: center;
     }
 
-    .site-footer strong { color: var(--miel-2); }
-
-    @media (max-width: 1020px) {
-      .value-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 54px 0 34px;
+      background: #000000;
     }
 
-    @media (max-width: 900px) {
-      .menu-toggle { display: inline-flex; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 0.6fr);
+      gap: 24px;
+      align-items: stretch;
+    }
 
+    .credit-card {
+      display: grid;
+      gap: 8px;
+      padding: 26px;
+    }
+
+    .credit-card p { color: var(--muted); }
+    .credit-card strong { color: var(--gold); }
+
+    .footer-logos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .brand-seal,
+    .bless-seal {
+      display: grid;
+      min-height: 190px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(27, 23, 16, 0.92), rgba(0, 0, 0, 0.92));
+    }
+
+    .brand-seal img { width: min(150px, 76%); }
+
+    .bless-seal {
+      color: var(--white);
+      font-size: 1.85rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .copyright {
+      margin-top: 26px;
+      color: var(--muted);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.86rem;
+      text-align: center;
+    }
+
+    @media (max-width: 1000px) {
+      .values-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lux-grid,
+      .research-layout,
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 820px) {
+      .menu-toggle { display: inline-flex; }
       .nav-links {
         position: absolute;
-        top: 74px;
-        right: 16px;
-        left: 16px;
+        inset: 82px 16px auto;
         display: grid;
         gap: 6px;
         padding: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: var(--radio);
-        background: rgba(8, 47, 73, 0.98);
-        box-shadow: var(--sombra);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(0, 0, 0, 0.98);
+        box-shadow: var(--shadow);
         opacity: 0;
         pointer-events: none;
         transform: translateY(-10px);
@@ -778,573 +557,257 @@
         transform: translateY(0);
       }
 
-      .nav-links a { width: 100%; justify-content: center; }
-      .nav .button { display: none; }
-      .hero { min-height: 88vh; }
-      .sound-toggle { top: 92px; right: 16px; }
-
-      .hero-layout, .hero-stats, .split, .card-grid, .product-grid, .timeline, .plan-grid, .video-grid, .contact-grid, .research-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .insight-grid,
-      .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .photo-stack { grid-template-columns: 1fr; }
-      .photo-frame img, .photo-frame.small img { min-height: 310px; }
+      .nav-links a { justify-content: center; width: 100%; }
+      .product-grid,
+      .points-grid,
+      .footer-logos { grid-template-columns: 1fr; }
       section { padding: 72px 0; }
+      .product-card figure { min-height: 300px; }
     }
 
     @media (max-width: 560px) {
-      .container, .hero-content { width: min(100% - 24px, var(--max)); }
-      .brand-mark { width: 38px; height: 38px; }
-      .brand-logo { width: 40px; height: 40px; }
-      .brand-text { font-size: 0.96rem; }
-      .brand-text span { font-size: 0.66rem; }
-      .hero h1 { font-size: clamp(2.7rem, 16vw, 4.2rem); }
-      .hero-content { padding-bottom: 42px; }
-      .hero-main-logo { width: 116px; }
-      .sound-toggle { top: 84px; min-height: 40px; padding: 0 14px; font-size: 0.9rem; }
-      .stat, .info-card, .value-card, .product-card, .plan-card, .contact-form { padding: 22px; }
-      .form-row, .value-grid, .insight-grid, .gallery-grid { grid-template-columns: 1fr; }
+      .container { width: min(100% - 24px, var(--max)); }
+      .brand img { width: 46px; height: 46px; }
+      .brand span { font-size: 0.9rem; }
+      .hero { min-height: 88vh; }
+      .hero-content {
+        width: min(100% - 24px, var(--max));
+        padding: 120px 0 56px;
+      }
+      .hero-logo { width: 140px; }
+      .hero h1 { font-size: clamp(3.1rem, 16vw, 4.8rem); }
+      .values-grid { grid-template-columns: 1fr; }
+      .panel,
+      .value-card,
+      .product-body,
+      .point-card,
+      .research-card,
+      .credit-card { padding: 22px; }
     }
   </style>
 </head>
 <body>
   <header class="site-header">
-    <nav class="nav container" aria-label="Navegación principal">
-      <a class="brand" href="#inicio" aria-label="Ir al inicio">
-        <img class="brand-logo" src="assets/brand/valle-de-miel-logo.png" alt="">
-        <span class="brand-text">Café Valle de Miel <span>Emprendimiento 2026</span></span>
+    <nav class="nav container" aria-label="Menú de navegación">
+      <a class="brand" href="#inicio" aria-label="Inicio">
+        <img src="assets/brand/valle-de-miel-logo.png" alt="Logo Café Valle de Miel">
+        <span>Café Valle de Miel</span>
       </a>
-
-      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links" onclick="toggleMenu()">
         <span aria-hidden="true"></span>
       </button>
-
       <ul class="nav-links" id="nav-links">
-        <li><a href="#empresa">Empresa</a></li>
-        <li><a href="#productos">Producto</a></li>
-        <li><a href="#proceso">Proceso</a></li>
-        <li><a href="#plan">Plan</a></li>
-        <li><a href="#segunda">Segunda etapa</a></li>
-        <li><a href="#video">Video</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#investigacion">Investigación de Mercado</a></li>
+        <li><a href="#puntos">Puntos de Venta</a></li>
       </ul>
-
-      <a class="button" href="#contacto">Solicitar información</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero" id="inicio" aria-label="Presentación de Café Valle de Miel">
-      <video class="hero-bg" autoplay muted playsinline preload="metadata" poster="assets/media/hero-valle-miel-poster.jpg" aria-label="Videos principales de Café Valle de Miel">
+    <section class="hero" id="inicio">
+      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/media/hero-valle-miel-frame.jpg" aria-label="Video principal de Café Valle de Miel">
         <source src="assets/media/hero-valle-miel.mp4" type="video/mp4">
       </video>
-      <button class="sound-toggle" type="button" aria-label="Activar sonido del video principal" aria-pressed="false">Activar sonido</button>
       <div class="hero-content">
-        <div class="hero-layout">
-          <div class="hero-copy">
-            <img class="hero-main-logo" src="assets/brand/valle-de-miel-logo.png" alt="Logo Café Valle de Miel">
-            <span class="eyebrow">Café guatemalteco de altura</span>
-            <h1>Café Valle de Miel</h1>
-            <p>
-              Emprendimiento escolar 2026 enfocado en café cultivado en San Pedro Yepocapa, con identidad local,
-              elegancia guatemalteca y una experiencia complementada con mini pastelitos artesanales.
-            </p>
-            <div class="hero-actions">
-              <a class="button" href="#empresa">Ver proyecto</a>
-              <a class="button-ghost" href="#video">Ver video</a>
-            </div>
-            <div class="hero-stats" aria-label="Datos principales del emprendimiento">
-              <div class="stat"><strong>1,400</strong><span>metros sobre el nivel del mar</span></div>
-              <div class="stat"><strong>2026</strong><span>curso de Emprendimiento</span></div>
-              <div class="stat"><strong>100%</strong><span>meta de comercialización</span></div>
-              <div class="stat"><strong>50%</strong><span>meta de combos con pastelitos</span></div>
-            </div>
-          </div>
-        </div>
+        <img class="hero-logo" src="assets/brand/valle-de-miel-logo.png" alt="Logo Café Valle de Miel">
+        <h1>Café Valle de Miel</h1>
+        <p class="slogan">“La Grandeza está en tu esencia”</p>
       </div>
     </section>
 
-    <section class="empresa" id="empresa">
-      <div class="container split">
-        <div>
-          <div class="section-head">
-            <span class="section-kicker">Identidad empresarial</span>
-            <h2 class="section-title">Una marca con misión, visión y raíz local</h2>
-            <p class="section-text">
-              Café Valle de Miel busca convertir cada grano en una experiencia de orgullo guatemalteco, conectando la tradición
-              cafetalera de San Pedro Yepocapa con una propuesta moderna y comercialmente viable.
-            </p>
-          </div>
-
-          <div class="card-grid">
-            <article class="info-card featured">
-              <h3>Misión</h3>
-              <p>
-                Transformar cada grano de café en elegancia y orgullo guatemalteco, tostando y sirviendo café de alta calidad
-                para unir a las personas en experiencias que inspiran.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>Visión</h3>
-              <p>
-                Ser reconocidos como una marca que distribuye café de excelencia, con calidad, tradición y una conexión real
-                con la riqueza de nuestras tierras.
-              </p>
-            </article>
-            <article class="info-card">
-              <h3>Ubicación</h3>
-              <p>
-                El emprendimiento se desarrolla en San Pedro Yepocapa, una zona productora de café con alto consumo local y
-                fuerte cultura cafetalera.
-              </p>
-            </article>
-          </div>
-        </div>
-
-        <div class="photo-stack" aria-label="Fotografías de la finca y el entorno">
-          <figure class="photo-frame small">
-            <img src="assets/volcan-yepocapa-finca-keleya.png" alt="Volcanes y paisaje de San Pedro Yepocapa">
-          </figure>
-          <figure class="photo-frame">
-            <img src="assets/cosecha-cafe-finca-keleya.png" alt="Trabajo en terreno de cultivo familiar">
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="values-band" id="valores">
+    <section id="nosotros">
       <div class="container">
         <div class="section-head">
-          <span class="section-kicker">Valores</span>
-          <h2 class="section-title">Pilares de Café Valle de Miel</h2>
-          <p class="section-text">
-            Los valores del documento de trabajo se convierten en la personalidad de la marca y en la base de sus decisiones.
-          </p>
+          <span class="section-kicker">Sección 1</span>
+          <h2 class="section-title">Información General / Nosotros</h2>
+        </div>
+        <div class="lux-grid">
+          <div class="panel">
+            <h3>Nombre de la Empresa</h3>
+            <p>Café Valle de Miel.</p>
+            <h3>Misión (Empresarial)</h3>
+            <p>“Somos la esencia que transforma cada grano de café en elegancia y orgullo guatemalteco, distinguiéndonos por tostar y servir café de la más alta calidad, uniendo a las personas en experiencias que inspiran y nutren el espíritu humano.”</p>
+            <h3>Visión (Empresarial)</h3>
+            <p>“Ser reconocidos como la marca que distribuye el mejor café del mundo, ofreciendo calidad, tradición y una experiencia única que conecte a las personas con la riqueza de nuestras tierras y el esfuerzo de quienes lo producen.”</p>
+          </div>
+          <div class="panel logo-panel">
+            <img src="assets/brand/valle-de-miel-logo.png" alt="Logo Café Valle de Miel">
+          </div>
         </div>
 
-        <div class="value-grid">
-          <article class="value-card"><span class="value-icon" aria-hidden="true">01</span><h3>Artesanía</h3><p>Cada grano se trata con dedicación, desde la cosecha hasta el tostado.</p></article>
-          <article class="value-card"><span class="value-icon" aria-hidden="true">02</span><h3>Coraje</h3><p>La marca compite con elegancia en un mercado exigente.</p></article>
-          <article class="value-card"><span class="value-icon" aria-hidden="true">03</span><h3>Perseverancia</h3><p>La calidad se mantiene con esfuerzo constante y mejora continua.</p></article>
-          <article class="value-card"><span class="value-icon" aria-hidden="true">04</span><h3>Honestidad</h3><p>Cada taza entrega lo que promete: confianza, aroma y calidad.</p></article>
-          <article class="value-card"><span class="value-icon" aria-hidden="true">05</span><h3>Respeto</h3><p>Respeto por clientes, colaboradores, comunidad y tierra cafetalera.</p></article>
+        <div class="values-grid">
+          <article class="value-card">
+            <h3>Artesanía</h3>
+            <p>Trabajo cuidadoso que convierte el café en una obra de calidad desde la cosecha hasta el tostado.</p>
+          </article>
+          <article class="value-card">
+            <h3>Coraje</h3>
+            <p>Defender lo que somos y competir en un mercado exigente llevando el café guatemalteco al prestigio.</p>
+          </article>
+          <article class="value-card">
+            <h3>Perseverancia</h3>
+            <p>Esfuerzo continuo para mantener la más alta calidad y ser reconocidos internacionalmente.</p>
+          </article>
+          <article class="value-card">
+            <h3>Honestidad</h3>
+            <p>Generar confianza entregando lo prometido en cada taza.</p>
+          </article>
+          <article class="value-card">
+            <h3>Respeto</h3>
+            <p>Presente en el trato con clientes, colaboradores, comunidades y la tradición cafetalera.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="productos" id="productos">
+    <section id="productos">
       <div class="container">
         <div class="section-head">
-          <span class="section-kicker">Oferta comercial</span>
-          <h2 class="section-title">Producto principal y complemento</h2>
-          <p class="section-text">
-            El proyecto combina un café de carácter volcánico con mini pastelitos artesanales, pensados para aumentar el valor
-            de compra y crear una experiencia completa.
-          </p>
+          <span class="section-kicker">Sección 2</span>
+          <h2 class="section-title">Descripción de Productos y Empaques</h2>
         </div>
-
         <div class="product-grid">
-          <article class="product-card" style="--image: url('assets/camino-finca-keleya.png');">
-            <h3>Café de altura</h3>
-            <p>Café cultivado a 1,400 msnm en tierras volcánicas, con aroma intenso, sabor balanceado, notas dulces y acidez agradable.</p>
-            <div class="badge-row">
-              <span class="badge">Tierras volcánicas</span>
-              <span class="badge">Aroma intenso</span>
-              <span class="badge">San Pedro Yepocapa</span>
+          <article class="product-card">
+            <figure>
+              <img class="contain" src="assets/segunda/empaque-cafe.png" alt="Bolsa de empaque negro mate con franja dorada">
+            </figure>
+            <div class="product-body">
+              <h3>Producto Principal: CAFÉ</h3>
+              <p>Cultivado a 1,400 msnm en tierras volcánicas. Crece lentamente en montañas concentrando un aroma intenso y un sabor balanceado con notas dulces y acidez perfecta.</p>
+              <ul class="facts">
+                <li><strong>Presentación:</strong> Bolsa de 1 libra (453g) de café molido.</li>
+                <li><strong>Precio:</strong> Q80.00 por libra.</li>
+                <li><strong>Empaque:</strong> Bolsa Trilaminada negro mate con logo en dorado. Protege de la luz, el oxígeno y la humedad.</li>
+              </ul>
             </div>
           </article>
-          <article class="product-card" style="--image: url('assets/media/finca-keleya-poster.jpg');">
-            <h3>Mini pastelitos</h3>
-            <p>Repostería artesanal en sabores como café, chocolate, vainilla y canela, creada para acompañar una buena taza.</p>
-            <div class="badge-row">
-              <span class="badge">Producto secundario</span>
-              <span class="badge">Combos</span>
-              <span class="badge">Sabores nuevos</span>
+          <article class="product-card">
+            <figure>
+              <img src="assets/segunda/prueba-pastelito.png" alt="Mini pastelitos decorados">
+            </figure>
+            <div class="product-body">
+              <h3>Producto Secundario: MINI PASTELITOS</h3>
+              <p>Repostería artesanal pensada para acompañar el café. Sabores como café, chocolate, vainilla, canela, etc., y opción de sabores frutales como fresa. Porción individual.</p>
+              <ul class="facts">
+                <li><strong>Precio:</strong> Q8.00 unitario (disponible en combo con café).</li>
+                <li><strong>Empaque:</strong> Cajitas biodegradables de fibra de caña de azúcar, resistentes y con detalles hechos a mano.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        <div class="product-grid">
+          <article class="product-card">
+            <figure>
+              <img class="contain" src="assets/segunda/empaque-pastelitos.png" alt="Empaques ecológicos individuales">
+            </figure>
+            <div class="product-body">
+              <h3>Empaque del producto secundario</h3>
+              <p>Cajitas biodegradables de fibra de caña de azúcar, resistentes y con detalles hechos a mano.</p>
+            </div>
+          </article>
+          <article class="product-card">
+            <figure>
+              <img src="assets/segunda/prueba-piloto-cafe.png" alt="Prueba del café">
+            </figure>
+            <div class="product-body">
+              <h3>Prueba piloto</h3>
+              <p>Pruebas del café y pastelitos.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="proceso" id="proceso">
+    <section id="puntos">
       <div class="container">
         <div class="section-head">
-          <span class="section-kicker">Producción</span>
-          <h2 class="section-title">Control de calidad por etapas</h2>
-          <p class="section-text">
-            El documento propone monitorear cada etapa de producción, asignar responsables, capacitar al personal y reducir
-            desperdicios de materia prima.
-          </p>
+          <span class="section-kicker">Sección 3</span>
+          <h2 class="section-title">Ubicación y Puntos de Venta</h2>
         </div>
-
-        <div class="timeline">
-          <article class="step-card has-image">
-            <figure class="step-media">
-              <img src="assets/volcan-yepocapa-finca-keleya.png" alt="Terreno volcánico de San Pedro Yepocapa donde crece el café">
-            </figure>
-            <div class="step-content">
-              <span>01</span>
-              <h3>Nacimiento y cuidado</h3>
-              <p>El cultivo se desarrolla en tierras volcánicas, aprovechando el clima de montaña y la riqueza mineral del suelo.</p>
-            </div>
+        <div class="points-grid">
+          <article class="point-card">
+            <h3>Ubicación de Origen</h3>
+            <p>San Pedro Yepocapa, Chimaltenango.</p>
           </article>
-          <article class="step-card has-image">
-            <figure class="step-media">
-              <img src="assets/cosecha-cafe-finca-keleya.png" alt="Trabajo de cosecha y traslado del café en la finca">
-            </figure>
-            <div class="step-content">
-              <span>02</span>
-              <h3>Cosecha y selección</h3>
-              <p>La selección manual permite cuidar la calidad del grano y mantener la identidad artesanal del producto.</p>
-            </div>
+          <article class="point-card">
+            <h3>Punto de Venta Matriz</h3>
+            <p>San Pedro Yepocapa (Lugar de producción y procesamiento con alta tradición cafetalera).</p>
           </article>
-          <article class="step-card has-image">
-            <figure class="step-media">
-              <img src="assets/segunda/empaque-cafe.png" alt="Empaque final del café Valle de Miel como parte del procesamiento y presentación">
-            </figure>
-            <div class="step-content">
-              <span>03</span>
-              <h3>Procesamiento y tostado</h3>
-              <p>El lavado, secado, molienda y tostado se controlan con mantenimiento, registros y capacitación del personal.</p>
-            </div>
+          <article class="point-card">
+            <h3>Segundo Punto de Venta</h3>
+            <p>Centro Comercial Miraflores (Alta visibilidad y gran afluencia para posicionamiento como producto premium).</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="plan" id="plan">
+    <section id="investigacion">
       <div class="container">
         <div class="section-head">
-          <span class="section-kicker">Administración</span>
-          <h2 class="section-title">Objetivos, estrategias y tácticas</h2>
-          <p class="section-text">
-            La propuesta administrativa conecta producción, ventas y promoción para posicionar Café Valle de Miel en el mercado local.
-          </p>
+          <span class="section-kicker">Sección 4</span>
+          <h2 class="section-title">Investigación de Mercado y Prueba Piloto</h2>
         </div>
-
-        <div class="plan-grid">
-          <article class="plan-card">
-            <h3>Meta de producción y ventas 2026</h3>
-            <p><strong>Objetivo:</strong> comercializar el 100% de la producción durante el cuarto trimestre de 2026.</p>
-            <ul class="plan-list">
-              <li>Monitorear etapas del 1 de octubre al 15 de noviembre de 2026.</li>
-              <li>Asignar responsables por área y rotar encargados al finalizar ciclos.</li>
-              <li>Reducir desperdicios de materia prima en 15% antes del 31 de diciembre de 2026.</li>
-            </ul>
-          </article>
-          <article class="plan-card">
-            <h3>Combos con mini pastelitos 2027</h3>
-            <p><strong>Objetivo:</strong> lograr que al menos el 50% de clientes agreguen mini pastelitos durante el primer trimestre de 2027.</p>
-            <ul class="plan-list">
-              <li>Lanzar combos de café y pastelitos del 1 de enero al 15 de febrero de 2027.</li>
-              <li>Promocionar en redes sociales, medios locales y colaboraciones con influencers.</li>
-              <li>Definir 3 nuevos sabores mediante encuestas y muestras gratuitas.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="segunda" id="segunda">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-kicker">Segunda etapa</span>
-          <h2 class="section-title">Investigación de mercado y validación</h2>
-          <p class="section-text">
-            La segunda fase confirma la aceptación del café, evalúa los mini pastelitos como complemento y define elementos clave
-            para lanzar la marca: empaque, precio, puntos de venta y pruebas piloto.
-          </p>
-        </div>
-
-        <div class="insight-grid" aria-label="Resultados destacados de la segunda etapa">
-          <article class="insight-card">
-            <strong>100%</strong>
-            <span>consume café</span>
-            <p>Todos los encuestados consumen café regularmente y están dispuestos a probar una marca local.</p>
-          </article>
-          <article class="insight-card">
-            <strong>95%</strong>
-            <span>prefiere café molido</span>
-            <p>La presentación molida es la opción más fuerte para el producto principal.</p>
-          </article>
-          <article class="insight-card">
-            <strong>Q80</strong>
-            <span>precio aceptado</span>
-            <p>Fue el precio más elegido para una libra de café de alta calidad.</p>
-          </article>
-          <article class="insight-card">
-            <strong>80%</strong>
-            <span>quiere combo</span>
-            <p>La mayoría muestra interés en café acompañado con mini pastelitos.</p>
-          </article>
-        </div>
-
-        <div class="research-grid">
-          <article class="research-card">
-            <img src="assets/segunda/encuesta-cafe-campo.png" alt="Trabajo de campo para encuesta del producto principal">
-            <div class="card-body">
-              <h3>Trabajo de campo</h3>
-              <p>
-                Las encuestas se realizaron en San Pedro Yepocapa a personas consumidoras de café, con enfoque en hábitos,
-                presentación preferida, precio y disposición a probar una marca local.
-              </p>
-            </div>
-          </article>
-          <article class="research-card">
-            <img src="assets/segunda/encuesta-pastelitos-campo.png" alt="Encuesta del producto secundario mini pastelitos">
-            <div class="card-body">
-              <h3>Producto secundario</h3>
-              <p>
-                Los mini pastelitos se validan como acompañamiento del café: el precio sugerido es Q8, el sabor más atractivo
-                es fresa y el combo tiene buena aceptación.
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <div class="gallery-grid" aria-label="Imágenes de empaque, precio y prueba piloto">
-          <article class="gallery-card">
-            <img src="assets/segunda/empaque-cafe.png" alt="Empaque negro y dorado del café Valle de Miel">
-            <div class="card-body">
-              <h3>Empaque líder</h3>
-              <p>Bolsa negra mate con logo dorado, pensada para comunicar café premium y proteger aroma y sabor.</p>
-            </div>
-          </article>
-          <article class="gallery-card">
-            <img src="assets/segunda/empaque-pastelitos.png" alt="Empaque biodegradable para mini pastelitos">
-            <div class="card-body">
-              <h3>Empaque secundario</h3>
-              <p>Cajitas biodegradables de fibra de caña de azúcar, resistentes y personalizables.</p>
-            </div>
-          </article>
-          <article class="gallery-card formula">
-            <img src="assets/segunda/formula-punto-equilibrio.png" alt="Fórmula de punto de equilibrio">
-            <div class="card-body">
-              <h3>Precio y equilibrio</h3>
-              <p>Precio propuesto: Q80 por libra. Punto de equilibrio estimado: 38 unidades.</p>
-            </div>
-          </article>
-          <article class="gallery-card">
-            <img src="assets/segunda/prueba-piloto-cafe.png" alt="Prueba piloto del café con formulario">
-            <div class="card-body">
-              <h3>Prueba piloto café</h3>
-              <p>La evaluación destaca aroma excelente, sabor muy bueno, empaque atractivo y percepción premium.</p>
-            </div>
-          </article>
-          <article class="gallery-card">
-            <img src="assets/segunda/prueba-pastelito.png" alt="Mini pastelito usado en prueba piloto">
-            <div class="card-body">
-              <h3>Prueba piloto pastelito</h3>
-              <p>El producto combina bien con café; se recomienda mejorar tamaño y seguir trabajando sabor.</p>
-            </div>
-          </article>
-          <article class="gallery-card">
-            <img src="assets/segunda/empaque-cafe.png" alt="Producto café Valle de Miel para punto de venta">
-            <div class="card-body">
-              <h3>Puntos de venta</h3>
-              <p>San Pedro Yepocapa como punto matriz y Miraflores como segundo punto para posicionamiento premium.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="video-section" id="video">
-      <div class="container video-grid">
-        <div class="section-head">
-          <span class="section-kicker">Material visual</span>
-          <h2 class="section-title">La esencia del proyecto en video</h2>
-          <p class="section-text">
-            Este video aporta un elemento humano y visual al emprendimiento: muestra el entorno, la identidad local y el tono
-            artesanal que acompaña a Café Valle de Miel.
-          </p>
-          <a class="button" href="#contacto">Solicitar presentación</a>
-        </div>
-
-        <div class="video-wrap">
-          <video controls playsinline preload="metadata" poster="assets/media/material-visual-valle-poster.jpg">
-            <source src="assets/media/material-visual-valle.mp4" type="video/mp4">
-            Tu navegador no puede reproducir este video.
-          </video>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contacto">
-      <div class="container contact-grid">
-        <div>
-          <div class="section-head">
-            <span class="section-kicker">Contacto</span>
-            <h2 class="section-title">Pedidos e información</h2>
-            <p class="section-text">Usa el formulario para registrar consultas, pedidos o solicitudes de información para la presentación del proyecto.</p>
-          </div>
-          <div class="contact-info">
-            <div class="info-line"><strong>Empresa</strong><span>Café Valle de Miel</span></div>
-            <div class="info-line"><strong>Curso</strong><span>Emprendimiento 2026</span></div>
-            <div class="info-line"><strong>Carrera</strong><span>6to. Perito en Administración de Empresas</span></div>
-            <div class="info-line"><strong>Ubicación</strong><span>San Pedro Yepocapa, Guatemala</span></div>
-          </div>
-        </div>
-
-        <form class="contact-form" id="contact-form">
-          <div class="form-row">
-            <div class="field">
-              <label for="nombre">Nombre</label>
-              <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
-            </div>
-            <div class="field">
-              <label for="correo">Correo</label>
-              <input id="correo" name="correo" type="email" placeholder="correo@ejemplo.com" required>
+        <div class="research-layout">
+          <div class="research-stack">
+            <article class="research-card">
+              <h3>Mercado Meta</h3>
+              <p>Amantes del café sin importar edad ni sexo.</p>
+            </article>
+            <div class="accordion" id="research-accordion">
+              <button type="button" aria-expanded="true" aria-controls="panel-1">Resultados Clave de Investigación <span>+</span></button>
+              <div class="accordion-panel is-open" id="panel-1">
+                <ul class="facts">
+                  <li>El 100% de los encuestados consume café y el 95% lo hace a diario.</li>
+                  <li>El 95% prefiere café molido y el 70% compra empaques de 1 libra (453g).</li>
+                  <li>El 80% considera el <strong>Sabor</strong> como el factor principal de compra y el 60% está dispuesto a pagar Q80 por libra.</li>
+                  <li>El 80% prefiere acompañar su café con repostería y comprarlo en combo.</li>
+                </ul>
+              </div>
+              <button type="button" aria-expanded="false" aria-controls="panel-2">Pruebas Piloto Realizadas <span>+</span></button>
+              <div class="accordion-panel" id="panel-2">
+                <p>Galería con fotografías de las encuestas en campo y pruebas del café y pastelitos.</p>
+              </div>
             </div>
           </div>
-          <div class="field">
-            <label for="asunto">Asunto</label>
-            <input id="asunto" name="asunto" type="text" placeholder="Pedido, información o presentación" required>
+          <div class="gallery" aria-label="Galería de investigación de mercado y prueba piloto">
+            <div class="gallery-frame">
+              <img class="is-active" src="assets/segunda/encuesta-cafe-campo.png" alt="Encuesta en campo de café" data-title="Encuesta en campo de café">
+              <img src="assets/segunda/encuesta-pastelitos-campo.png" alt="Encuesta en campo de pastelitos" data-title="Encuesta en campo de pastelitos">
+              <img src="assets/segunda/prueba-piloto-cafe.png" alt="Prueba piloto café" data-title="Prueba piloto café">
+              <img src="assets/segunda/prueba-pastelito.png" alt="Prueba piloto pastelitos" data-title="Prueba piloto pastelitos">
+            </div>
+            <div class="gallery-controls">
+              <button type="button" class="gallery-prev" aria-label="Imagen anterior">‹</button>
+              <p class="gallery-title">Encuesta en campo de café</p>
+              <button type="button" class="gallery-next" aria-label="Imagen siguiente">›</button>
+            </div>
           </div>
-          <div class="field">
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" placeholder="Escribe tu consulta aquí..." required></textarea>
-          </div>
-          <button class="form-button" type="submit">Enviar solicitud</button>
-          <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
-        </form>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p><strong>Café Valle de Miel</strong> - Proyecto Escolar Emprendimiento 2026 - Perito en Administración de Empresas</p>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="credit-card">
+        <h3>Créditos del Proyecto</h3>
+        <p><strong>Estudiante:</strong> Umul Nimajuan Pedro Fernando</p>
+        <p><strong>Grado:</strong> 6to Perito en Administración de Empresas</p>
+        <p><strong>Asignatura:</strong> Proyecto de Emprendimiento (Primera y Segunda Etapa)</p>
+        <p><strong>Catedrático:</strong> Lic. Alvin Amílcar Castillo</p>
+        <p><strong>Institución:</strong> Colegio BLESS (Año 2026)</p>
+      </div>
+      <div class="footer-logos" aria-label="Logos adicionales">
+        <div class="bless-seal">BLESS<br>2026</div>
+        <div class="brand-seal"><img src="assets/brand/valle-de-miel-logo.png" alt="Logo Café Valle de Miel"></div>
+      </div>
     </div>
+    <p class="copyright">Café Valle de Miel</p>
   </footer>
 
-  <script>
-    const header = document.querySelector(".site-header");
-    const menuButton = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-    const sectionLinks = document.querySelectorAll(".nav-links a, .hero-actions a, .nav .button, .video-section .button");
-    const navItems = document.querySelectorAll(".nav-links a");
-    const heroVideo = document.querySelector(".hero-bg");
-    const soundButton = document.querySelector(".sound-toggle");
-    const heroPlaylist = [
-      {
-        src: "assets/media/hero-valle-miel.mp4",
-        poster: "assets/media/hero-valle-miel-poster.jpg"
-      },
-      {
-        src: "assets/media/hero-valle-miel-2.mp4",
-        poster: "assets/media/hero-valle-miel-2-poster.jpg"
-      },
-      {
-        src: "assets/media/hero-valle-miel-3.mp4",
-        poster: "assets/media/hero-valle-miel-3-poster.jpg"
-      }
-    ];
-    const heroSlowMotionRate = 0.65;
-    let currentHeroVideo = 0;
-    const form = document.querySelector("#contact-form");
-    const formNote = document.querySelector("#form-note");
-
-    function applyHeroSlowMotion() {
-      heroVideo.playbackRate = heroSlowMotionRate;
-    }
-
-    function closeMenu() {
-      navLinks.classList.remove("is-open");
-      menuButton.classList.remove("is-open");
-      menuButton.setAttribute("aria-expanded", "false");
-    }
-
-    menuButton.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("is-open");
-      menuButton.classList.toggle("is-open", isOpen);
-      menuButton.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    sectionLinks.forEach((link) => {
-      link.addEventListener("click", (event) => {
-        const targetId = link.getAttribute("href");
-        if (!targetId || !targetId.startsWith("#")) return;
-        const target = document.querySelector(targetId);
-        if (!target) return;
-
-        event.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-        closeMenu();
-      });
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        navItems.forEach((item) => {
-          item.classList.toggle("is-active", item.getAttribute("href") === `#${entry.target.id}`);
-        });
-      });
-    }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
-
-    document.querySelectorAll("main section[id]").forEach((section) => observer.observe(section));
-
-    window.addEventListener("scroll", () => {
-      header.classList.toggle("is-scrolled", window.scrollY > 12);
-    });
-
-    applyHeroSlowMotion();
-    heroVideo.addEventListener("loadedmetadata", applyHeroSlowMotion);
-
-    soundButton.addEventListener("click", async () => {
-      const shouldActivateSound = heroVideo.muted;
-      heroVideo.muted = !shouldActivateSound;
-      soundButton.setAttribute("aria-pressed", String(shouldActivateSound));
-      soundButton.setAttribute(
-        "aria-label",
-        shouldActivateSound ? "Silenciar video principal" : "Activar sonido del video principal"
-      );
-      soundButton.textContent = shouldActivateSound ? "Silenciar" : "Activar sonido";
-
-      if (shouldActivateSound && heroVideo.paused) {
-        try {
-          await heroVideo.play();
-        } catch (error) {
-          heroVideo.muted = true;
-          soundButton.setAttribute("aria-pressed", "false");
-          soundButton.setAttribute("aria-label", "Activar sonido del video principal");
-          soundButton.textContent = "Activar sonido";
-        }
-      }
-    });
-
-    heroVideo.addEventListener("ended", async () => {
-      currentHeroVideo = (currentHeroVideo + 1) % heroPlaylist.length;
-      const nextVideo = heroPlaylist[currentHeroVideo];
-      const wasMuted = heroVideo.muted;
-
-      heroVideo.poster = nextVideo.poster;
-      heroVideo.src = nextVideo.src;
-      heroVideo.muted = wasMuted;
-      heroVideo.load();
-      applyHeroSlowMotion();
-
-      try {
-        await heroVideo.play();
-      } catch (error) {
-        heroVideo.muted = true;
-        soundButton.setAttribute("aria-pressed", "false");
-        soundButton.setAttribute("aria-label", "Activar sonido del video principal");
-        soundButton.textContent = "Activar sonido";
-      }
-    });
-
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      formNote.textContent = "Gracias. Tu solicitud quedó registrada para la presentación de Café Valle de Miel.";
-      form.reset();
-    });
-  </script>
+  <script src="assets/app.js"></script>
 </body>
 </html>
